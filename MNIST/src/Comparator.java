@@ -60,7 +60,6 @@ public class Comparator {
 
 		// Merge the result of both threads
 		System.arraycopy(a, 0, distances, 0, a.length);
-		System.out.println(a[0][0]);
 		System.arraycopy(b, 0, distances, a.length, b.length);
 
 		return distances;
@@ -117,7 +116,6 @@ public class Comparator {
 		double confidence;
 		double countEst = 0.0;
 
-		System.out.println(distances[0][0] +" : "+ distances[0][1]);
 		for (int i = 0; i < k; i++) {
 			if (distances[i][1] == estimation) {
 				countEst++;
