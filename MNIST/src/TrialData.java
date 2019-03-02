@@ -42,6 +42,10 @@ public class TrialData extends Image{
 			imgIntValues = cleanedImageValuess;
 		}
 	}
+	
+	public boolean exists() {
+		return imgIntValues != null;
+	}
 
 	// Return trial image
 	public BufferedImage getBufferedImage() {

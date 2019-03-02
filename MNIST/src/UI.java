@@ -104,8 +104,8 @@ public class UI {
 	// Run the comparison function and display the results in the ui
 	private void makeComparison() {
 		uiHandler.makeComparison();
-		lblEstimation.setText(String.valueOf(uiHandler.getEstimation()));
-		lblConfidence.setText(String.valueOf(uiHandler.getConfidence() + "%"));
+		lblEstimation.setText(uiHandler.getEstimation());
+		lblConfidence.setText(uiHandler.getConfidence() + "%");
 	}
 
 	// Pass the desired sample size to the comparator

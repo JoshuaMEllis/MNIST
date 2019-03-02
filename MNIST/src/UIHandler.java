@@ -30,13 +30,13 @@ public class UIHandler {
 	}
 
 	// Returns the estimation of the comparison
-	public int getEstimation() {
-		return MNIST.getEstimation();
+	public String getEstimation() {
+		return String.valueOf(MNIST.getEstimation());
 	}
 
 	// Returns the confidence of the comparison
-	public double getConfidence() {
-		return MNIST.getConfidence();
+	public String getConfidence() {
+		return String.valueOf(MNIST.getConfidence());
 	}
 
 	// Set the sample size of the comparator

@@ -26,4 +26,8 @@ public class Comparison {
 	public double getConfidence(){
 		return confidence;
 	}
+	
+	public boolean exists() {
+		return estimation > -1;
+	}
 }
