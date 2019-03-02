@@ -28,7 +28,7 @@ public class Comparator {
 			setSampleSize(K_DEFAULT);
 		}
 	}
-
+	
 	// Compare trial image with dataset file
 	public Comparison makeComparison(Comparand comparand, TrialData trialData) throws Exception {
 		intialiseVars(comparand, trialData);
@@ -55,12 +55,13 @@ public class Comparator {
 		double[][] a = thread1.call();
 		EuclidianThread thread2 = new EuclidianThread();
 		thread2.passVars(imgHeight, imgWidth, trialImgData, comparandImgData, comparandListgData, comparandSize / 2,
-				comparandSize - 1, comparandSize / 2);
+				comparandSize, comparandSize / 2);
 		double[][] b = thread2.call();
 
 		// Merge the result of both threads
 		System.arraycopy(a, 0, distances, 0, a.length);
-		System.arraycopy(b, 0, distances, a.length - 1, b.length);
+		System.out.println(a[0][0]);
+		System.arraycopy(b, 0, distances, a.length, b.length);
 
 		return distances;
 	}
@@ -79,7 +80,7 @@ public class Comparator {
 	// Find most common value in [1] of array
 	private double getEstimation(double[][] array) {
 		double[] tempArray = new double[array.length];
-
+		
 		for (int i = 0; i < array.length; i++) {
 			tempArray[i] = array[i][1];
 		}
@@ -113,10 +114,10 @@ public class Comparator {
 	 * common value in the entire array
 	 */
 	private double getConfidence(int estimation) {
-
 		double confidence;
 		double countEst = 0.0;
 
+		System.out.println(distances[0][0] +" : "+ distances[0][1]);
 		for (int i = 0; i < k; i++) {
 			if (distances[i][1] == estimation) {
 				countEst++;

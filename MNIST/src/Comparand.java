@@ -40,15 +40,15 @@ public class Comparand extends Image {
 			imgHeight = imgDatasetStream.readInt();
 			imgWidth = imgDatasetStream.readInt();
 
-			imgIntValues = new int[(imgWidth * imgHeight)*comparandSize];
-			for (int index = 0; index < comparandSize-1; index++) {
+			imgIntValues = new int[((imgWidth * imgHeight)*comparandSize)];
+			for (int index = 0; index < comparandSize; index++) {
 				for (int y = 0; y < imgHeight; y++) {
 					for (int x = 0; x < imgWidth; x++) {
 						// Start at a minimum of 17 to avoid the initial 18 bytes of dataset information
-						if (datasetImgBytes[17 + (y * imgHeight) + x + (index * (imgHeight * imgWidth))] < -1) {
-							imgIntValues[17 + (y * imgHeight) + x + (index * (imgHeight * imgWidth))] = 255;
+						if (datasetImgBytes[16 + (y * imgHeight) + x + (index * (imgHeight * imgWidth))] < -1) {
+							imgIntValues[(y * imgHeight) + x + (index * (imgHeight * imgWidth))] = 255;
 						} else {
-							imgIntValues[17 + (y * imgHeight) + x + (index * (imgHeight * imgWidth))] = 0;
+							imgIntValues[(y * imgHeight) + x + (index * (imgHeight * imgWidth))] = 0;
 						}
 					}
 				}

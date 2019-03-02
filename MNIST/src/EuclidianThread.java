@@ -22,9 +22,8 @@ class EuclidianThread implements Callable<double[][]> {
 			int sum = 0;
 			for (int y = 0; y < imgHeight; y++) {
 				for (int x = 0; x < imgWidth; x++) {
-					// Start at a minimum of 17 to avoid the initial 18 bytes of dataset information
 					// This calculates the euclidian distance, a crucial part of the KNN algorithm
-					sum += (comparandImgData[17 + (y * imgHeight) + x + (index * (imgHeight * imgWidth))] - trialImgData[(y * imgHeight) + x]) * (comparandImgData[17 + (y * imgHeight) + x + (index * (imgHeight * imgWidth))] - trialImgData[(y * imgHeight) + x]);
+					sum += (comparandImgData[(y * imgHeight) + x + (index * (imgHeight * imgWidth))] - trialImgData[(y * imgHeight) + x]) * (comparandImgData[(y * imgHeight) + x + (index * (imgHeight * imgWidth))] - trialImgData[(y * imgHeight) + x]);
 				}
 			}
 			distances[index - startAt][0] = java.lang.Math.sqrt(sum);
